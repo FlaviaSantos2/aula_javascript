@@ -1,0 +1,62 @@
+<!-- área para desenhar dentro do HTML --> 
+<canvas width="600" height="400">
+
+</canvas>
+
+<script>
+//pode ser usado "" ou '' no javascript
+var tela = document.querySelector('canvas');
+
+//tipo de pincel na tela (2D)
+var pincel = tela.getContext('2d');
+
+pincel.fillStyle = 'lightgray';
+pincel.fillRect(0, 0, 600, 400);
+
+
+//Retângulo 1: 350, 300 (cabeça).
+pincel.fillStyle = 'green';
+pincel.fillRect(0,0, 350, 300);
+
+pincel.fillStyle = 'black';
+
+//Retângulos 2 e 3: 90, 90 (olho esquerdo).
+pincel.fillRect(50, 50, 90, 90);
+
+//Retângulos 2 e 3: 90, 90 (olhos direito).
+pincel.fillRect(210, 50, 90, 90);
+
+//Retângulo 4: 70, 100 (nariz).
+pincel.fillRect(140, 140, 70, 100);
+
+//Retângulos 5 e 6: 40, 110 (parte da boca esquerda).
+pincel.fillRect(100, 190, 40, 110);
+
+//Retângulos 5 e 6: 40, 110 (parte da boca direita).
+pincel.fillRect(210, 190, 40, 110);
+
+
+
+
+
+/*
+//***** TRABALHANDO COM QUADRADOS ******
+
+//pincel, fillstyle é uma propriedade e não uma função.
+//pincel recebe o "estilo" cor cinza claro
+//precisa ser declarado a cor sempre antes do tipo de pincel
+pincel.fillStyle = 'lightgrey';
+
+//pincel, preencha um retangulo. margem x,y coordenadas x e y
+//respeitando as limitações declaradas no canvas
+pincel.fillRect(0, 0, 600, 400);
+
+//escolhendo a cor verde e desenhando um retangulo no lado esquerdo
+pincel.fillStyle = 'green';
+pincel.fillRect(0, 0, 200, 400);
+
+//escolhendo a cor vermelho e desenhando um retangulo no lado direito
+pincel.fillStyle = 'red';
+pincel.fillRect(400, 0, 200, 400);
+*/
+</script>

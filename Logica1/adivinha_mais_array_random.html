@@ -1,0 +1,104 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Compare com o meu segredo</button>
+
+<script>
+    /*
+        //var segredos = [5,7,10,2];
+        var segredos = [];
+        //insere um valor redondo randomico dentro do array
+        segredos.push(Math.round(Math.random() * 10));
+        segredos.push(Math.round(Math.random() * 10));
+        segredos.push(Math.round(Math.random() * 10));
+        segredos.push(Math.round(Math.random() * 10));
+        
+        console.log(segredos);
+
+    */
+    function sorteia() {
+    //sorteia e retorna um numero aleatório de 0  10
+        return Math.round(Math.random() * 10);
+
+    }
+
+    function sorteiaNumeros(quantidade) {
+
+        var segredos = [];
+
+        var numero = 1;
+
+        while(numero <= quantidade) {
+        //o numero sorteado é guardado em uma variável aux numeroAleatorio
+            var numeroAleatorio = sorteia();
+            var achou = false;
+            //Se o numero sorteado for diferente de 0
+            if (numeroAleatorio !== 0) {
+                //verifica se o numero sorteado já foi sorteado antes em todas as casas do array
+                    for(var posicao = 0; posicao < segredos.length; posicao++) {
+                        //se o numero encontrado for igual a um numero encontrado antes
+                        // o codigo sai sem armazenar o valor na variavel segredos
+                        if(segredos[posicao] == numeroAleatorio){
+                                achou = true;
+                                break;
+                        }
+
+                    }
+                    //se o numero encontrado for diferente dos outros
+                    //o valor é armazenado no array segredos
+                    if (achou == false) {
+                        segredos.push(numeroAleatorio);
+                        numero++;
+                    }
+            }
+
+        }
+
+        return segredos;
+
+    }
+        //********* QUANTIDADE DE NUMEROS PARA SORTEAR ********
+        var segredos = sorteiaNumeros(3);
+
+        console.log(segredos);
+        //  querySelector() para inserir aquilo que está no mundo HTML na variável input
+        var input = document.querySelector("input");
+        input.focus();
+
+        function verifica() {
+
+        var achou = false;
+
+        for(var posicao = 0; posicao < segredos.length; posicao++) {
+                //// .value permite comparar o valor que a variável input possui no mundo HTML  
+                if(input.value == segredos[posicao]) {
+
+                        alert("Você ACERTOU!");
+                        achou = true;
+                        break;
+                } 
+        }
+
+        if(achou == false) {
+
+                alert("Você ERROU!");
+        }
+
+            //limpa a caixa de texto após a tentativa
+            input.value ="";
+            //após errar já seleciona a caixa para a próxima tentativa
+            input.focus();
+
+        }
+        //  querySelector() para inserir aquilo que está no mundo HTML na variável button
+        var button = document.querySelector("button");
+
+        //verifica é uma função, quando chamada SEM () permite que só seja executada ao clicar no botão
+        button.onclick = verifica;
+
+
+        /*
+        A variável é chamada antes mesmo do click acontecer, devido ao ().
+        button.onclick = verifica();
+        */
+</script>

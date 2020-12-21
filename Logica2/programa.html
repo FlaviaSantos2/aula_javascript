@@ -1,0 +1,58 @@
+
+<!-- área para desenhar dentro do HTML --> 
+<canvas width="600" height="400">
+
+</canvas>
+
+<script>
+//pode ser usado "" ou '' no javascript
+var tela = document.querySelector('canvas');
+
+//tipo de pincel na tela (2D)
+var pincel = tela.getContext('2d');
+
+//***** TRABALHANDO COM QUADRADOS ******
+
+//pincel, fillstyle é uma propriedade e não uma função.
+//pincel recebe o "estilo" cor cinza claro
+//precisa ser declarado a cor sempre antes do tipo de pincel
+pincel.fillStyle = 'lightgrey';
+
+//pincel, preencha um retangulo. margem x,y coordenadas x e y
+//respeitando as limitações declaradas no canvas
+pincel.fillRect(0, 0, 600, 400);
+
+//escolhendo a cor verde e desenhando um retangulo no lado esquerdo
+pincel.fillStyle = 'green';
+pincel.fillRect(0, 0, 200, 400);
+
+//escolhendo a cor vermelho e desenhando um retangulo no lado direito
+pincel.fillStyle = 'red';
+pincel.fillRect(400, 0, 200, 400);
+
+
+//***** TRABALHANDO COM TRIANGULOS *****
+
+//começar o caminho onde o pincel vai seguir
+pincel.fillStyle = 'yellow';
+//beginPath é usado para iniciar a escrita do caminho
+pincel.beginPath();
+//pincel mova-se até
+pincel.moveTo(300,200);
+//pincel desenhe uma linha desse ponto até
+pincel.lineTo(200,400);
+pincel.lineTo(400,400);
+//pintar a area desenhada
+pincel.fill();
+
+
+//***** TRABALHANDO COM CIRCULOS ******
+
+pincel.fillStyle = 'blue';
+pincel.beginPath();
+
+//arc é usado para fazer um circulo
+//(posicao X, posicao Y, raio, angulo inicial, angulo final em radianos )
+pincel.arc(300, 200, 50, 0, 2 * 3.14);
+pincel.fill();
+</script>

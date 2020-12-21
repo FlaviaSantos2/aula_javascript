@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+
+<input/>
+<button> Compare com o número sorteado </button>
+
+<script>
+
+    var segredos = [5,7,10,2];
+
+//  querySelector() para inserir aquilo que está no mundo HTML na variável input
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+        
+        var achou = false;
+
+        for (posicao=0; posicao < segredos.length; posicao++){
+
+            // .value permite comparar o valor que a variável input possui no mundo HTML
+            if(input.value == segredos[posicao]){
+                alert("Você ACERTOU!");
+            achou = true;
+            break;
+            }
+        }    
+
+        if (achou == false){
+            alert("VOCÊ ERROU!");
+        }
+        //limpa a caixa de texto após a tentativa
+        input.value ="";
+        //após errar já seleciona a caixa para a próxima tentativa
+        input.focus();
+    }
+//  querySelector() para inserir aquilo que está no mundo HTML na variável button
+    var button = document.querySelector("button");
+
+    //verifica é uma função, quando chamada sem () permite que só seja executada ao clicar no botão
+    button.onclick = verifica;
+
+    
+    /*
+    A variável é chamada antes mesmo do click acontecer, devido ao ().
+    button.onclick = verifica();
+    */
+</script>

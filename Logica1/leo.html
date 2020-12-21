@@ -1,0 +1,88 @@
+<html lang = "pt-br">
+
+    <head>
+
+        <meta charset = "utf-8"/>
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0"/>
+
+        <title> Cronômetro </title>
+
+    </head>
+
+    <body>
+
+        <header>
+            
+            <div>
+
+                <h1> Tempo </h1>
+
+                
+            </div>
+
+            <div id = "cronometro">
+
+                <span id = "horas"> 00 </span>:
+                <span id = "minutos"> 00 </span>:
+                <span id = "segundos"> 00 </span>:
+                <span id = "milissegundos"> 00 </span>
+
+            </div>
+
+        </header>
+
+
+        <script>
+            var cronometro = 0;
+
+            var horas = document.getElementById("horas");
+            var minutos = document.getElementById("minutos");
+            var segundos = document.getElementById("segundos");
+            var milissegundos = document.getElementById("milissegundos");
+
+
+            var h = 0;
+            var min = 0;
+            var seg = 0;
+            var ms = 0;
+
+            cronometro = setInterval(function () {
+
+                horas.innerHTML = h > 1 ? "00" + h : h;
+                minutos.innerHTML = min > 1 ? "00" + min : min;
+                segundos.innerHTML = seg > 1 ? "00" + seg : seg;
+                milissegundos.innerHTML = ms > 1 ? "00" + ms : ms;
+
+                if(ms > 9){
+                    ms -= 1;
+                }
+                else if(seg > 59){
+                    ms = 0;
+                    seg -= 1;
+                    
+                }
+                else if(min > 59){
+                    ms = 0;
+                    seg = 0;
+                    min -= 1;
+
+                }
+                else if(h > 23){
+                    ms = 0;
+                    seg = 0;
+                    min = 0;
+                    h += 1;
+
+                }
+                else{
+
+                    alert("Algo deu errado!");
+
+                }
+
+            }, 100)
+
+        </script>
+    </body>
+
+</html>
